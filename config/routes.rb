@@ -1,4 +1,31 @@
 Rails.application.routes.draw do
+  root to: 'restos#index'
+
+
+  resources :restos, only:[:index, :show, :new, :create] do
+    resources :reviews, only: [:new, :create]
+  end
+
+
+
+
+end
+# resources :restos do
+#     collection do
+#       get 'top', to: "restos#index", to:'restos#index'
+#       get 'restos/:id', to 'restos#show'
+
+#       get 'restos/new', to 'resto#new'
+#       post 'restos', to 'resto#create'
+#
+#     end
+#   end
+# end
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +80,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

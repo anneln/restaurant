@@ -1,0 +1,31 @@
+<h1>Listing restos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restos.each do |resto| %>
+      <tr>
+        <td><%= resto.name %></td>
+        <td><%= resto.address %></td>
+        <td><%= resto.phone %></td>
+        <td><%= resto.category %></td>
+        <td><%= link_to 'Show', resto %></td>
+
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resto', new_resto_path %>
